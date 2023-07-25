@@ -1,14 +1,14 @@
 const connection = require("../database");
 
 const agregarUsuario = (req, res) => {
-  const [
+  const {
     nombre,
     apellido_paterno,
     apellido_materno,
     email,
     numero_telefonico,
     igsi,
-  ] = req.body;
+   } = req.body;
 
   connection.query(
     "INSERT INTO usuario (nombre, apellido_paterno, apellido_materno, email, numero_telefonico, igsi) VALUES (??????)",
@@ -34,3 +34,4 @@ const agregarUsuario = (req, res) => {
     }
   );
 };
+
