@@ -11,7 +11,7 @@ const agregarUsuario = (req, res) => {
    } = req.body;
 
   connection.query(
-    "INSERT INTO usuario (nombre, apellido_paterno, apellido_materno, email, numero_telefonico, igsi) VALUES (??????)",
+    "INSERT INTO usuario (nombre, apellido_paterno, apellido_materno, email, numero_telefonico, igsi) VALUES (?,?,?,?,?,?)",
     [
       nombre,
       apellido_paterno,
