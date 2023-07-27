@@ -58,8 +58,60 @@ const agregarUsuario = (req, res) => {
   );
 };
 
+
+// Eliminar usuarios por id
+const eliminarUsuarioId = (req, res) => {
+  const id = req.params.id
+
+  connection.query("DELETE FROM usuario WHERE id_usuario = ?",id, (error, result) => {
+    if (error) {
+      console.error("Error al eliminar usuarios", error);
+      res.status(500).json({error:"Error al eliminar usuarios"});
+    }else{
+      res.json({message:"El usuario ha sido eliminado"});
+    }
+  });
+};
+
+
+// Actualizar registro usuario
+const actualizarUsuarioId = (req, res) => {
+  const id = req.params.id
+  const {
+    nombre,
+    apellido_paterno,
+    apellido_materno,
+    email,
+    numero_telefonico,
+    igsi,
+  } = req.body;
+
+  connection.query(
+    "UPDATE usuario SET nombre = ?, apellido_paterno = ?, apellido_materno = ?, email = ?, numero_telefonico = ?, igsi = ? WHERE id_usuario = ?",
+    [
+      nombre,
+      apellido_paterno,
+      apellido_materno,
+      email,
+      numero_telefonico,
+      igsi,
+      id,
+    ],
+    (error, result) => {
+      if (error) {
+        console.error(`Error al actualizar el registro ${error}`);
+        res.status(500).json({ error: "Error al actualizar el registro." });
+      } else {
+        res.json({ message: "El usuario se actualizo correctamente." });
+      }
+    }
+  );
+};
+
 module.exports = {
   agregarUsuario,
   obtenerUsuario,
   obtenerUsuarioId,
+  eliminarUsuarioId,
+  actualizarUsuarioId,
 };
