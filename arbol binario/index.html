@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Árbol de Inventario Minecraft</title>
+    <link rel="stylesheet" type="text/css" href="estilos.css">
+</head>
+<body>
+    <h1>Árbol de Inventario Minecraft</h1>
+
+    <form id="formulario">
+        <input type="text" id="objeto" placeholder="Ingresa el objeto">
+        <input type="number" id="cantidad" placeholder="Ingresa la cantidad" max="64">
+        <input type="text" id="imagen" placeholder="Ingresa la URL de la imagen">
+        <input type="submit" value="Agregar al Inventario">
+    </form>
+
+    <form id="formulario-eliminar">
+        <input type="text" id="objeto-eliminar" placeholder="Ingresa el objeto a eliminar">
+        <input type="submit" value="Eliminar del Inventario">
+    </form>
+
+    <ul id="lista-inventario"></ul>
+
+    <script src="arbol.js"></script>
+</body>
+</html>
