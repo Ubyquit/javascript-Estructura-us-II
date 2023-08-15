@@ -15,11 +15,12 @@
     </form>
 
     <form id="formulario-eliminar">
-        <input type="text" id="objeto-eliminar" placeholder="Ingresa el objeto a eliminar">
-        <input type="submit" value="Eliminar del Inventario">
+        <label for="objeto-eliminar">Eliminar objeto:</label>
+        <select id="objeto-eliminar"></select>
+        <button type="submit">Eliminar</button>
     </form>
 
-    <ul id="lista-inventario"></ul>
+    <div id="inventario"></div>
 
     <script src="arbol.js"></script>
 </body>
